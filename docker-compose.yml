@@ -1,20 +1,21 @@
-version: '3.9'
+version: "3.9"
 
 services:
   db:
-    image: 'postgres'
+    image: "postgres"
     environment:
-      POSTGRES_PASSWORD: '123456'
-      POSTGRES_USER: 'docker'
+      POSTGRES_PASSWORD: "123456"
+      POSTGRES_USER: "docker"
     volumes:
       - .:/usr/app/var/lib/postgresql/data
     ports:
-      - '5432:5432'
+      - "5432:5432"
   server:
     depends_on:
       - db
-    build: .
+    build:
+      context: .
     volumes:
       - .:/usr/app
     ports:
-      - '5000:5000'
+      - "5000:5000"
