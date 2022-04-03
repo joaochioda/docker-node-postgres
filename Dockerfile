@@ -2,10 +2,12 @@ FROM node:15-alpine
 
 WORKDIR /usr/app
 
-COPY package.json /
+COPY package*.json ./
 
 RUN npm install
 
+RUN npm i sequelize-cli -g
+
 COPY . .
 
-CMD ["npm", "start"]
+CMD npm start
